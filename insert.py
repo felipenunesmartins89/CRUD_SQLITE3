@@ -19,14 +19,21 @@ def db_insert (name, phone, email):
     """.format(name, phone, email)
 
 def db_update(name, email):
-    """
+   return  """
+    UPDATE users SET name = '{}' WHERE email = '{}'
+    """.format(name, email)
 
-    """
+def db_delete(email):
+    return """
+    DELETE FROM users WHERE email ='{}'
+    """.format(email)
 
+#cur.execute(db_insert('webnets', '1321389310', 'contato@webnets.com.br'))
+#cur.execute(db_update('fernando', 'contato@webnets.com.br'))
+cur.execute(db_delete('contato@webnets.com.br'))
 
-cur.execute(db_insert('webnets', '1321389310', 'contato@webnets.com.br'))
 con.commit()
-print('Dados inseridos com sucesso')
+print('Ação feita com sucesso')
 con.close()
 
 
